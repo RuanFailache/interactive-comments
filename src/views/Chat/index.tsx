@@ -5,7 +5,7 @@ import { MessageCard } from './components'
 import { ChatContainerStyle, MessagesListStyle } from './styles'
 
 import avatar from 'assets/avatars/image-amyrobson.png'
-import { NewMessageForm } from './components/MessageCard/components/NewMessageForm'
+import { NewMessageForm } from './components/NewMessageForm'
 
 const messages = [
   {
@@ -28,6 +28,24 @@ const messages = [
   },
   {
     id: 3,
+    profile: {
+      image: avatar,
+      name: 'amyrobson',
+      postedAt: '1 month ago',
+    },
+    text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae ab eum explicabo deleniti magnam nostrum ipsa, debitis iste necessitatibus nobis accusantium? Beatae quisquam consequatur eligendi, architecto alias itaque vel tempore.',
+  },
+  {
+    id: 4,
+    profile: {
+      image: avatar,
+      name: 'amyrobson',
+      postedAt: '1 month ago',
+    },
+    text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae ab eum explicabo deleniti magnam nostrum ipsa, debitis iste necessitatibus nobis accusantium? Beatae quisquam consequatur eligendi, architecto alias itaque vel tempore.',
+  },
+  {
+    id: 5,
     profile: {
       image: avatar,
       name: 'amyrobson',
