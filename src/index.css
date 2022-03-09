@@ -1,13 +1,21 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'RubikRegular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/rubik-v19-latin-regular.woff2') format('woff2'),
+    url('assets/fonts/rubik-v19-latin-regular.woff') format('woff'),
+    url('assets/fonts/rubik-v19-latin-regular.ttf') format('truetype');
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'RubikBold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/rubik-v19-latin-700.woff2') format('woff2'),
+    url('assets/fonts/rubik-v19-latin-700.woff') format('woff'),
+    url('assets/fonts/rubik-v19-latin-700.ttf') format('truetype');
+}
+
+body {
+  background-color: hsl(228, 33%, 97%);
 }
