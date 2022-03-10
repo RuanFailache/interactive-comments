@@ -10,25 +10,22 @@ import {
   ReplyButtonTextStyle,
 } from './styles'
 
+import { Message } from 'types'
 import { ReactComponent as ReplyIcon } from 'assets/icon-reply.svg'
 
 type MessageHeaderProps = {
-  profile: {
-    image: string
-    name: string
-    postedAt: string
-  }
+  profile: Partial<Message>
 }
 
 export const MessageHeader: React.FC<MessageHeaderProps> = function ({
-  profile,
+  profile: { user, createdAt },
 }) {
   return (
     <HeaderBoxStyle>
       <ProfileBoxStyle>
-        <ProfileImageStyle src={profile.image} alt="profile" />
-        <ProfileNameStyle>{profile.name}</ProfileNameStyle>
-        <ProfilePostedAtStyle>{profile.postedAt}</ProfilePostedAtStyle>
+        <ProfileImageStyle src={user?.image.png || user?.image.webp} alt="profile" />
+        <ProfileNameStyle>{user?.username}</ProfileNameStyle>
+        <ProfilePostedAtStyle>{createdAt}</ProfilePostedAtStyle>
       </ProfileBoxStyle>
       <ReplyButtonStyle type="button">
         <ReplyIcon />

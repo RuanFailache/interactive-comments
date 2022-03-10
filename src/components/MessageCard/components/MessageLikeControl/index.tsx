@@ -9,15 +9,19 @@ import {
 import { ReactComponent as PlusIcon } from 'assets/icon-plus.svg'
 import { ReactComponent as MinusIcon } from 'assets/icon-minus.svg'
 
-const likes = 12
+type MessageLikeControlProps = {
+  score: number
+}
 
-export const MessageLikeControl: React.FC = function () {
+export const MessageLikeControl: React.FC<MessageLikeControlProps> = function ({
+  score
+}) {
   return (
     <ControlBoxStyle>
       <ControlButtonStyle>
         <PlusIcon />
       </ControlButtonStyle>
-      <ControlLikeTextStyle>{likes}</ControlLikeTextStyle>
+      <ControlLikeTextStyle>{score}</ControlLikeTextStyle>
       <ControlButtonStyle>
         <MinusIcon />
       </ControlButtonStyle>

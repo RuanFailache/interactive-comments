@@ -23,6 +23,7 @@ export const NewMessageFormImageStyle = styled.img`
   width: 48px;
   height: 48px;
   object-fit: cover;
+  border-radius: 100%;
 `
 
 export const NewMessageFormTextStyle = styled.textarea`
