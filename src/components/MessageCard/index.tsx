@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Comment, Message, Reply } from 'types'
 
 import { MessageHeader, MessageLikeControl } from './components'
 
@@ -7,30 +8,6 @@ import {
   MessageContainerStyle,
   MessageContentStyle,
 } from './styles'
-
-type User = {
-  image: {
-    png: string,
-    webp: string
-  },
-  username: string
-}
-
-type Message = {
-  id: number,
-  content: string,
-  createdAt: string,
-  score: number,
-  user: User
-}
-
-type Reply = Message & {
-  replyingTo: string
-}
-
-type Comment = Message & {
-  replies: Reply[]
-}
 
 type MessageCardProps = {
   message: Comment | Reply

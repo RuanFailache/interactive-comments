@@ -6,8 +6,6 @@ export const MessageCardStyle = styled.section`
   align-items: flex-start;
   gap: 32px;
 
-  width: 1150px;
-  margin: 0 auto;
   padding: 32px;
   border-radius: 5px;
 
