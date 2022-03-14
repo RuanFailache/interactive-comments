@@ -35,7 +35,7 @@ export const ProfilePostedAtStyle = styled.span`
   color: ${themes.neutral.grayishBlue};
 `
 
-export const ReplyButtonStyle = styled.button`
+export const ProfileButtonStyle = styled.button`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -43,7 +43,7 @@ export const ReplyButtonStyle = styled.button`
   border: none;
   border-radius: 5px;
   background-color: transparent;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
 
   &:hover {
@@ -51,9 +51,15 @@ export const ReplyButtonStyle = styled.button`
   }
 `
 
-export const ReplyButtonTextStyle = styled.span`
+export const ProfileButtonTextStyle = styled.span`
   font-family: 'RubikBold';
   font-size: 16px;
   line-height: 26px;
-  color: ${themes.primary.moderateBlue};
+  color: ${(props) => props.color};
+`
+
+export const ProfileButtonBoxStyle = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
 `

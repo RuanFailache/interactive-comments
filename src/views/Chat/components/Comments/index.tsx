@@ -1,16 +1,14 @@
 import React from 'react'
 
 import { MessagesListStyle } from './styles'
-
-import { MessageCard } from 'components'
-import { useComments } from 'contexts/comments'
-import { Comment } from 'types'
 import { Replies } from './components'
 
+import { Comment } from 'types'
+import { useComments } from 'hooks'
+import { MessageCard } from 'components'
+
 export const Comments: React.FC = function () {
-  const comments = useComments()
-
-
+  const { comments } = useComments()
 
   return (
     <MessagesListStyle>
@@ -22,4 +20,4 @@ export const Comments: React.FC = function () {
       ))}
     </MessagesListStyle>
   )
-} 
+}

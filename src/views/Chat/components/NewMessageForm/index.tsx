@@ -7,14 +7,12 @@ import {
   NewMessageFormTextStyle,
 } from './styles'
 
-import { useUser } from 'contexts'
+import { useUser } from 'hooks'
 
 export const NewMessageForm: React.FC = function () {
-  const user = useUser()
+  const { user } = useUser()
 
-  const userAvatar = user
-    ? user.image.png || user.image.webp
-    : ''
+  const userAvatar = user ? user.image.png || user.image.webp : ''
 
   return (
     <NewMessageFormStyle>

@@ -6,12 +6,18 @@ import {
   ProfileImageStyle,
   ProfileNameStyle,
   ProfilePostedAtStyle,
-  ReplyButtonStyle,
-  ReplyButtonTextStyle,
+  ProfileButtonStyle,
+  ProfileButtonTextStyle,
+  ProfileButtonBoxStyle,
 } from './styles'
 
-import { Message } from 'types'
 import { ReactComponent as ReplyIcon } from 'assets/icon-reply.svg'
+import { ReactComponent as EditIcon } from 'assets/icon-edit.svg'
+import { ReactComponent as DeleteIcon } from 'assets/icon-delete.svg'
+
+import { Message } from 'types'
+import { useUser } from 'hooks'
+import { themes } from 'theme-pallete'
 
 type MessageHeaderProps = {
   profile: Partial<Message>
@@ -20,17 +26,42 @@ type MessageHeaderProps = {
 export const MessageHeader: React.FC<MessageHeaderProps> = function ({
   profile: { user, createdAt },
 }) {
+  const { checkIfMessageIsFromCurrentUser } = useUser()
+  const isFromCurrentUser = checkIfMessageIsFromCurrentUser(user)
+
   return (
     <HeaderBoxStyle>
       <ProfileBoxStyle>
-        <ProfileImageStyle src={user?.image.png || user?.image.webp} alt="profile" />
+        <ProfileImageStyle
+          src={user?.image.png || user?.image.webp}
+          alt="profile"
+        />
         <ProfileNameStyle>{user?.username}</ProfileNameStyle>
         <ProfilePostedAtStyle>{createdAt}</ProfilePostedAtStyle>
       </ProfileBoxStyle>
-      <ReplyButtonStyle type="button">
-        <ReplyIcon />
-        <ReplyButtonTextStyle>Reply</ReplyButtonTextStyle>
-      </ReplyButtonStyle>
+      {isFromCurrentUser ? (
+        <ProfileButtonBoxStyle>
+          <ProfileButtonStyle>
+            <DeleteIcon />
+            <ProfileButtonTextStyle color={themes.primary.softRed}>
+              Delete
+            </ProfileButtonTextStyle>
+          </ProfileButtonStyle>
+          <ProfileButtonStyle>
+            <EditIcon />
+            <ProfileButtonTextStyle color={themes.primary.moderateBlue}>
+              Edit
+            </ProfileButtonTextStyle>
+          </ProfileButtonStyle>
+        </ProfileButtonBoxStyle>
+      ) : (
+        <ProfileButtonStyle>
+          <ReplyIcon />
+          <ProfileButtonTextStyle color={themes.primary.moderateBlue}>
+            Reply
+          </ProfileButtonTextStyle>
+        </ProfileButtonStyle>
+      )}
     </HeaderBoxStyle>
   )
 }
