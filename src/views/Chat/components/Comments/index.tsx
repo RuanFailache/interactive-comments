@@ -4,7 +4,7 @@ import { MessagesListStyle } from './styles'
 import { Replies } from './components'
 
 import { Comment } from 'types'
-import { useComments } from 'hooks'
+import { useComments } from 'contexts'
 import { MessageCard } from 'components'
 
 export const Comments: React.FC = function () {

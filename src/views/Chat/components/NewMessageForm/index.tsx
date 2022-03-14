@@ -7,7 +7,7 @@ import {
   NewMessageFormTextStyle,
 } from './styles'
 
-import { useUser } from 'hooks'
+import { useUser } from 'contexts'
 
 export const NewMessageForm: React.FC = function () {
   const { user } = useUser()

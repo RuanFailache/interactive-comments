@@ -1,17 +1,25 @@
-import { useCallback, useEffect, useState } from 'react'
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 
 import data from 'data.json'
 
 import { User } from 'types'
 
-type UserHookOutput = {
+type UserContextOutput = {
   user?: User
   checkIfMessageIsFromCurrentUser: (currentUser?: User) => boolean
 }
 
-type UserHook = () => UserHookOutput
+const Ctx = createContext<UserContextOutput>({
+  checkIfMessageIsFromCurrentUser: () => false,
+})
 
-export const useUser: UserHook = function () {
+export const UserContext: React.FC = function ({ children }) {
   const [user, setUser] = useState<User>()
 
   useEffect(() => {
@@ -28,8 +36,11 @@ export const useUser: UserHook = function () {
     [user]
   )
 
-  return {
-    user,
-    checkIfMessageIsFromCurrentUser,
-  }
+  return (
+    <Ctx.Provider value={{ user, checkIfMessageIsFromCurrentUser }}>
+      {children}
+    </Ctx.Provider>
+  )
 }
+
+export const useUser = () => useContext(Ctx)
