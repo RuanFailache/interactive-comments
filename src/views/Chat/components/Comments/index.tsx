@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { MessagesListStyle } from './styles'
 import { Replies } from './components'
 
 import { Comment } from 'types'
-import { useComments } from 'contexts'
+import { CommentContext, useComments } from 'contexts'
 import { MessageCard } from 'components'
 
 type CommentContainerProps = {
@@ -14,16 +14,10 @@ type CommentContainerProps = {
 const CommentContainer: React.FC<CommentContainerProps> = function ({
   comment,
 }) {
-  const [isReplying, setIsReplying] = useState(false)
-
   return (
     <li key={comment.id}>
-      <MessageCard message={comment} setIsReplying={setIsReplying} />
-      <Replies
-        comment={comment}
-        isReplying={isReplying}
-        setIsReplying={setIsReplying}
-      />
+      <MessageCard message={comment} />
+      <Replies comment={comment} />
     </li>
   )
 }
@@ -34,7 +28,9 @@ export const Comments: React.FC = function () {
   return (
     <MessagesListStyle>
       {comments.map((comment: Comment) => (
-        <CommentContainer comment={comment} />
+        <CommentContext>
+          <CommentContainer comment={comment} />
+        </CommentContext>
       ))}
     </MessagesListStyle>
   )
