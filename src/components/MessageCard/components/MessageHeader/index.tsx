@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
 import {
   HeaderBoxStyle,
@@ -13,10 +13,12 @@ import { ProfileButtonBox } from './components'
 
 type MessageHeaderProps = {
   profile: Partial<Message>
+  setIsReplying: Dispatch<SetStateAction<boolean>>
 }
 
 export const MessageHeader: React.FC<MessageHeaderProps> = function ({
   profile: { user, createdAt },
+  setIsReplying,
 }) {
   const profileImageSource = user?.image.png || user?.image.webp
 
@@ -27,7 +29,7 @@ export const MessageHeader: React.FC<MessageHeaderProps> = function ({
         <ProfileNameStyle>{user?.username}</ProfileNameStyle>
         <ProfilePostedAtStyle>{createdAt}</ProfilePostedAtStyle>
       </ProfileBoxStyle>
-      <ProfileButtonBox currentUser={user} />
+      <ProfileButtonBox currentUser={user} setIsReplying={setIsReplying} />
     </HeaderBoxStyle>
   )
 }

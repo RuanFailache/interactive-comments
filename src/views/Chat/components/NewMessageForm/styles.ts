@@ -2,14 +2,9 @@ import styled from 'styled-components'
 import { themes } from 'theme-pallete'
 
 export const NewMessageFormStyle = styled.form`
-  position: fixed;
-  bottom: 64px;
-  left: calc((100% - 1150px) / 2);
-
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  width: 1150px;
   padding: 32px;
   border-radius: 5px;
 

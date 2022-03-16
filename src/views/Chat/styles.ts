@@ -12,3 +12,10 @@ export const ChatContainerStyle = styled.main`
     display: none;
   }
 `
+
+export const ChatFooterStyle = styled.footer`
+  position: fixed;
+  width: 1150px;
+  bottom: 64px;
+  left: calc((100% - 1150px) / 2);
+`
