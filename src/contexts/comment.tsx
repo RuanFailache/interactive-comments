@@ -2,21 +2,29 @@ import React, { createContext, useContext, useState } from 'react'
 
 type CommentContextOutput = {
   isReplying: boolean
-  replyComment: () => void
+  replyingTo: string
+  replyComment: (replyingTo?: string) => void
 }
 
 const Ctx = createContext<CommentContextOutput>({
   isReplying: false,
+  replyingTo: '',
   replyComment: () => {},
 })
 
 export const CommentContext: React.FC = function ({ children }) {
   const [isReplying, setIsReplying] = useState(false)
+  const [replyingTo, setReplyingTo] = useState('')
 
-  const replyComment = () => setIsReplying(true)
+  const replyComment = (replyingTo?: string) => {
+    setIsReplying(true)
+    setReplyingTo(replyingTo || '')
+  }
 
   return (
-    <Ctx.Provider value={{ isReplying, replyComment }}>{children}</Ctx.Provider>
+    <Ctx.Provider value={{ isReplying, replyingTo, replyComment }}>
+      {children}
+    </Ctx.Provider>
   )
 }
 

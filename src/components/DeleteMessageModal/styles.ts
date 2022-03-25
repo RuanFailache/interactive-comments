@@ -11,7 +11,7 @@ export const ModalBackgroundStyle = styled.div`
   display: grid;
   place-items: center;
   text-align: left;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
   cursor: initial;
 `

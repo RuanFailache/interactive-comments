@@ -61,7 +61,7 @@ export const ProfileButtonBox: React.FC<ProfileButtonBoxProps> = function ({
   }
 
   return (
-    <ProfileButtonStyle onClick={replyComment}>
+    <ProfileButtonStyle onClick={() => replyComment(currentUser?.username)}>
       <ReplyIcon />
       <ProfileButtonTextStyle color={themes.primary.moderateBlue}>
         Reply
